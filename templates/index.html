@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+<title>RPS tournee</title>
+</head>
+<body>
+
+  <h1>Compare RPSs</h1>
+
+  <p>First:
+    <select name="first">
+      {% for f in files %}
+        <option value="{{f}}.py">{{f}}</option>
+      {% endfor %}
+    </select>
+  </p>
+
+  <p>Second:
+    <select name="first">
+      {% for f in files %}
+        <option value="{{f}}.py">{{f}}</option>
+      {% endfor %}
+    </select>
+  </p>
+
+  <p><button>Fight!</button></p>
+
+  <hr>
+
+  <h1>Upload RPS</h1>
+
+  <p>Name of this attempt</p>
+
+  <p><input name="filename"></input></p>
+
+  <p>Paste the code here</p>
+
+  <p><textarea name="code"></textarea></p>
+
+  <p><button>Upload</button></p>
+
+</body>
+</html>
