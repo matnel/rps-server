@@ -32,6 +32,8 @@
 
   <h1>Upload RPS</h1>
 
+  <form method="post" action="{{ url_for('save') }}">
+
   <p>Name of this attempt</p>
 
   <p><input name="filename"></input></p>
@@ -40,7 +42,9 @@
 
   <p><textarea name="code"></textarea></p>
 
-  <p><button>Upload</button></p>
+  <p><button type="submit">Upload</button></p>
+
+</form>
 
 </body>
 </html>

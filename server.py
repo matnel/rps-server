@@ -27,5 +27,20 @@ def execute():
 
     return render_template('results.html', results = results )
 
+@app.route('/save', methods=['POST', 'GET'] )
+def save():
+
+    name=request.form['filename'].strip()
+    code=request.form['code'].strip()
+
+    if not name.endswith( '.py' ):
+        name += '.py'
+
+    name = files_path + name
+
+    open( name, 'w').write( code )
+
+    return "Saved!"
+
 if __name__ == "__main__":
     app.run()
