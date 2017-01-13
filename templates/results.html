@@ -4,9 +4,18 @@
 </head>
 <body>
 
+  <table>
+    <tr>
+      <td>Winner</td>
+      <td>Cases</td>
+    </tr>
   {% for name, count in results.items() %}
-    {{name}} - {{count}} victories
+    <tr>
+      <td>{{name}}</td>
+      <td>{{count}}</td>
+    </tr>
   {% endfor %}
+</table>
 
 </body>
 </html>
