@@ -5,7 +5,6 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()
 
 import json
-
 users = json.load( open('users.json') , strict=False )
 
 @auth.get_password
