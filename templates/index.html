@@ -6,6 +6,8 @@
 
   <h1>Compare RPSs</h1>
 
+  <form method="post" action="{{ url_for('execute') }}">
+
   <p>First:
     <select name="first">
       {% for f in files %}
@@ -15,14 +17,16 @@
   </p>
 
   <p>Second:
-    <select name="first">
+    <select name="second">
       {% for f in files %}
-        <option value="{{f}}.py">{{f}}</option>
+        <option value="{{f}}">{{f}}</option>
       {% endfor %}
     </select>
   </p>
 
-  <p><button>Fight!</button></p>
+  <p><button type="submit">Fight!</button></p>
+
+</form>
 
   <hr>
 
