@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 import os
 import collections
+import engine
 
 files_path = './uploads/'
 
@@ -22,7 +23,7 @@ def execute():
     first=request.form['first']
     second=request.form['second']
 
-    results = [ first, second ]
+    results = engine.compare( first, second, files_path )
     results = collections.Counter( results )
 
     return render_template('results.html', results = results )
@@ -43,4 +44,5 @@ def save():
     return "Saved!"
 
 if __name__ == "__main__":
-    app.run()
+    port = int( os.environ.get('PORT', 5000) )
+    app.run( host='0.0.0.0', port=port, debug=True ) 
