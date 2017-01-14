@@ -46,5 +46,27 @@
 
 </form>
 
+  <hr>
+
+  <h1>See RPS</h1>
+
+  <form method="get" action="{{ url_for('see') }}">
+
+  <p>
+
+    <select name="filename">
+      {% for f in files %}
+        <option value="{{f}}">{{f}}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit">See</button>
+  </p>
+
+</form>
+
+
+
+
 </body>
 </html>

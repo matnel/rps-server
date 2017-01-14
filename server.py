@@ -57,6 +57,16 @@ def save():
 
     return "Saved!"
 
+@app.route('/see', methods=['POST', 'GET'] )
+@auth.login_required
+def see():
+
+    name=request.args['filename'].strip()
+
+    code = open( files_path + name + '.py', 'r').read()
+
+    return render_template('show.html', name = name, code = code )
+
 if __name__ == "__main__":
     port = int( os.environ.get('PORT', 5000) )
     app.run( host='0.0.0.0', port=port, debug=True )
