@@ -41,6 +41,32 @@ def execute():
 
     return render_template('results.html', results = results )
 
+@app.route('/compete', methods=['POST', 'GET'] )
+@auth.login_required
+def compete():
+
+    import itertools
+
+    files = os.listdir( files_path )
+    files = filter( lambda x: x.endswith('.py'), files )
+    files = map( lambda x: x.replace('.py', ''), files )
+
+    results = {}
+
+    for first, second in itertools.permutations( files, 2 ):
+
+        print first, second
+
+        result = engine.compare( first, second, files_path )
+        result = collections.Counter( result )
+
+        results[ first + ' vs. ' + second ] = result.most_common()[0][0]
+
+        print results
+
+    return render_template('compete.html', results = results, length = len(files) )
+
+
 @app.route('/save', methods=['POST'] )
 @auth.login_required
 def save():

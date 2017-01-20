@@ -28,7 +28,7 @@ def compare( file1, file2, path ):
         value1 = f1( actions1, actions2 )
         value2 = f2( actions2, actions1 )
 
-        print value1, '-', value2
+        ## print value1, '-', value2
 
         actions1.append( value1.lower() )
         actions2.append( value2.lower() )

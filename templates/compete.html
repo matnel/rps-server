@@ -1,0 +1,20 @@
+<!doctype html>
+<head>
+<title>RPS tournee</title>
+</head>
+<body>
+
+  <table>
+  {% for battle, winner in results.items() %}
+    {% if loop.index0 % length == 0 %}<tr>{% endif %}
+      <td>
+        {{battle}}
+        <br/>
+        {{winner}}
+      </td>
+    {% if loop.index0 % length == length -1 %}</tr>{% endif %}
+  {% endfor %}
+</table>
+
+</body>
+</html>
